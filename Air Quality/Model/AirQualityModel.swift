@@ -11,5 +11,8 @@ struct AirQualityModel {
     
 
     var countries: [String]
+    var cities: [String]
+    var state: [String]
+    var stateInfo: [String]
     
 }

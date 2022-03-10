@@ -7,15 +7,15 @@
 
 import UIKit
 
-class CountriesTableViewController: UITableViewController{
+class CountriesTableViewController: UITableViewController {
 
-    let countries = AirqualityManager()
-    var airqualityManager = AirqualityManager()
+    let apiData = AirqualityManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-
+        
+        
         
     }
 
@@ -32,11 +32,5 @@ class CountriesTableViewController: UITableViewController{
         let cell = tableView.dequeueReusableCell(withIdentifier: "countryCell", for: indexPath)
         
         return cell
-    }
-    
-    func displayInfo(_airQualityManager: AirqualityManager, countries: AirQualityModel) {
-        
-        
-        
     }
 }
