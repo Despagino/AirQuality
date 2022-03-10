@@ -12,19 +12,19 @@ class AirqualityManager {
     
     // MARK: - String constants
     
-    let baseURL = URL(string: "https://api.airvisual.com/v2/")
-    let apiKey = "2cc95ffe-2a84-4ce7-8cc4-5b5431bfaca2"
-    let apiKeyC = "key"
+    static let baseURL = URL(string: "https://api.airvisual.com/v2/")
+    static let apiKey = "2cc95ffe-2a84-4ce7-8cc4-5b5431bfaca2"
+    static let apiKeyC = "key"
     
     
-    let countriesC = "countries"
-    let statesC = "states"
-    let citiesC = "cities"
-    let cityC = "city"
+    static let countriesC = "countries"
+    static let statesC = "states"
+    static let citiesC = "cities"
+    static let cityC = "city"
     
-    let countryKey = "country"
-    let stateKey = "state"
-    let cityKey = "city"
+    static let countryKey = "country"
+    static let stateKey = "state"
+    static let cityKey = "city"
     
     
     
@@ -32,7 +32,7 @@ class AirqualityManager {
      
         //https://api.airvisual.com/v2/countries?key={{YOUR_API_KEY}}
 
-         func getCountries(completion: @escaping (Result<[String], NetworkError>) -> Void) {
+         static func getCountries(completion: @escaping (Result<[String], NetworkError>) -> Void) {
             
              guard let baseURL =  baseURL else { return completion(.failure(.invalidURL)) }
              let countriesURL = baseURL.appendingPathComponent(countriesC)
@@ -74,7 +74,7 @@ class AirqualityManager {
         
             // endpoint: https://api.airvisual.com/v2/states?country={{COUNTRY_NAME}}&key={{YOUR_API_KEY}}
 
-            func getStates(forCountry: String, completion: @escaping (Result<[String], NetworkError>) -> Void) {
+            static func getStates(forCountry: String, completion: @escaping (Result<[String], NetworkError>) -> Void) {
                 
                 guard let baseURL =  baseURL else { return completion(.failure(.invalidURL)) }
                 let stateURL = baseURL.appendingPathComponent(statesC)
@@ -127,7 +127,7 @@ class AirqualityManager {
         //endpoint: http://api.airvisual.com/v2/cities?state={{STATE_NAME}}&country={{COUNTRY_NAME}}&key={{YOUR_API_KEY}}
 
     
-        func getCity(forState: String, inCountry: String, completion: @escaping (Result<[String], NetworkError>) -> Void) {
+        static func getCity(forState: String, inCountry: String, completion: @escaping (Result<[String], NetworkError>) -> Void) {
             
             guard let baseURL = baseURL else {
                 return completion(.failure(.invalidURL))
@@ -184,7 +184,7 @@ class AirqualityManager {
     //endpoint: https://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key={{YOUR_API_KEY}}
 
     
-    func getCityInfo(forCity: String, forState: String, forCountry: String, completion: @escaping (Result<EachCityInfo, NetworkError>) -> Void) {
+    static func getCityInfo(forCity: String, forState: String, forCountry: String, completion: @escaping (Result<EachCityInfo, NetworkError>) -> Void) {
         
         guard let baseURL = baseURL else { return completion(.failure(.invalidURL))}
         
