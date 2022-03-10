@@ -36,15 +36,21 @@ struct StateData: Codable {
 
 struct City: Codable {
     let data: [CityData]
+    
 }
 
 struct CityData: Codable {
     let city: String
+    
 }
 
 
 // MARK: - getting the specific info of each city in data as well as the weather
 //endpoint: https://api.airvisual.com/v2/city?city=Los Angeles&state=California&country=USA&key={{YOUR_API_KEY}}
+
+struct EachCityInfo: Codable {
+    let data: CityInfo
+}
 
 struct CityInfo: Codable {
     let city: String
