@@ -9,6 +9,10 @@ import UIKit
 
 class StatesTableViewController: UITableViewController {
 
+    // MARK: - Properties
+    
+    var country: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

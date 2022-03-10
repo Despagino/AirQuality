@@ -59,6 +59,14 @@ class CountriesTableViewController: UITableViewController {
     
     // MARK: - Navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("hello")
+        if segue.identifier == "goToState" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? StatesTableViewController
+            else {
+                return
+            }
+            let country = countries[indexPath.row]
+            destination.country = country
+        }
     }
 }
