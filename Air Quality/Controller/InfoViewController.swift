@@ -8,22 +8,38 @@
 import UIKit
 
 class InfoViewController: UIViewController {
-
+    
+    // MARK: - Properties
+    
+    var country: String?
+    var state: String?
+    var city: String?
+    
+    
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var aqiLabel: UILabel!
+    @IBOutlet weak var wsLabel: UILabel!
+    @IBOutlet weak var tpLabel: UILabel!
+    @IBOutlet weak var huLabel: UILabel!
+    @IBOutlet weak var latLongLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        getInfo()
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    // MARK: - Helper
+    
+    func getInfo() {
+        guard let country = country, let state = state, let city = city else { return }
+        AirqualityManager.getCityInfo(forCity: city, forState: state, forCountry: country) { result in
+            
+            
+            
+        }
+        
     }
-    */
 
 }

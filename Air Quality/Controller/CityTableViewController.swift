@@ -63,6 +63,15 @@ class CityTableViewController: UITableViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 
+        if segue.identifier == "goToCityInfo" {
+            guard let indexPath = tableView.indexPathForSelectedRow,
+                  let destination = segue.destination as? InfoViewController else { return }
+            let city = cities[indexPath.row]
+            
+            destination.country = country
+            destination.city = city
+            destination.state = state
+        }
     }
     
 
