@@ -56,8 +56,8 @@ struct CityInfo: Codable {
     let city: String
     let state: String
     let country: String
-    let location: [Location]
-    let current: [Current]
+    let location: Location
+    let current: Current
 }
 
 struct Location: Codable {
@@ -73,6 +73,7 @@ struct Weather: Codable {
     let tp: Int
     let hu: Int
     let wd: Double
+    let ws: Double
 }
 struct Pollution: Codable {
     let aqius: Int

@@ -221,7 +221,7 @@ class AirqualityManager {
             catch {
                 return completion(.failure(.thrownError(error)))
             }
-        }
+        }.resume()
+        
     }
-    
     }
